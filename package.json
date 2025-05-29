@@ -25,6 +25,7 @@
     "@nestjs/core": "^11.1.0",
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/swagger": "^11.2.0",
     "@prisma/client": "^6.8.2",
     "class-validator": "^0.14.2",
     "pg": "^8.15.6",
@@ -81,6 +82,7 @@
       "@nestjs/core",
       "@prisma/client",
       "@prisma/engines",
+      "@scarf/scarf",
       "@swc/core",
       "prisma"
     ]
