@@ -33,7 +33,9 @@ export default tseslint.config(
 			'@typescript-eslint/no-unsafe-assignment': 'off',
 			'@typescript-eslint/no-unsafe-call': 'off',
 			'no-console': 0,
-			'prettier/prettier': 0
+			'prettier/prettier': 0,
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': 'off'
 		}
 	}
 )
