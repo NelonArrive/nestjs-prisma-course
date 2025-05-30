@@ -7,79 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Movie {
+model User {
   id String @id @default(uuid())
 
-  title       String
-  description String
-  releaseYear Int    @map("release_year")
-
-  rating      Float   @default(0.0)
-  isAvailable Boolean @default(true) @map("is_available")
-  duration    Int
-
-  genre String @default("UNKNOWN")
-
-  review Review[] @relation("movie_reviews")
-  actors Actor[]  @relation("movie_actors")
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @map("updated_at")
-
-  @@map("movies")
-}
-
-model Review {
-  id String @id @default(uuid())
-
-  text   String
-  rating Float  @default(0.0)
-
-  movieId String @map("movie_id")
-  movie   Movie  @relation("movie_reviews", fields: [movieId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @map("updated_at")
-
-  @@map("reviews")
-}
-
-model Actor {
-  id String @id @default(uuid())
+  email    String @unique
+  password String
 
   name String
-  age  Int
 
-  movies Movie[] @relation("movie_actors")
+  createdAt DateTime @default(now()) @map("create_at")
+  updatedAt DateTime @updatedAt @map("update_at")
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @map("updated_at")
-
-  @@map("actors")
-}
-
-enum Genre {
-  UNKNOWN
-  ACTION
-  COMEDY
-  DRAMA
-  FANTASY
-  HORROR
-  MYSTERY
-  ROMANCE
-  THRILLER
-  SCIENCE_FICTION
-  WESTERN
-  ANIMATION
-  DOCUMENTARY
-  CRIME
-  ADVENTURE
-  FAMILY
-  HISTORICAL
-  MUSICAL
-  WAR
-  SPORT
-  BIO
-
-  @@map("enum_genres")
+  @@map("users")
 }

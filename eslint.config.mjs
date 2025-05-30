@@ -35,7 +35,9 @@ export default tseslint.config(
 			'no-console': 0,
 			'prettier/prettier': 0,
 			'no-unused-vars': 'off',
-			'@typescript-eslint/no-unused-vars': 'off'
+			'@typescript-eslint/no-unused-vars': 'off',
+			'require-await': 'off',
+			'@typescript-eslint/require-await': 'off'
 		}
 	}
 )
